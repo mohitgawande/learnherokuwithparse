@@ -23,6 +23,7 @@ Parse.Cloud.define("cognito", function(req, res){
         TokenDuration: 300
     };
     console.log('hiiii mohit');
+    var cognitoidentity = new AWS.CognitoIdentity();
     cognitoidentity.getOpenIdTokenForDeveloperIdentity(params, function(err, data) {
         if (err) res.success(err); // an error occurred
         else     res.success(data);           // successful response
