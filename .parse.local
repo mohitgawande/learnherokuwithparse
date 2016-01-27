@@ -1,0 +1,11 @@
+{
+  "applications": {
+    "_default": {
+      "link": "parsoku"
+    },
+    "parsoku": {
+      "parseAppId": "iDtZ89S6xvLDmLBAOMNQYuxwtKHVr7sTumEKuvrr",
+      "herokuAppId": "861e6339-ac94-41fc-bc46-59da5f16be90"
+    }
+  }
+}
