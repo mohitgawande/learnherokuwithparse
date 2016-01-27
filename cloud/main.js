@@ -4,7 +4,7 @@ var Parse = require('parse-cloud-express').Parse;
 
 
 Parse.Cloud.define("hello", function(request, response) {
-  console.log('Ran cloud function.');
+  //console.log('Ran cloud function.');
   // As with Parse-hosted Cloud Code, the user is available at: request.user
   // You can get the users session token with: request.user.getSessionToken()
   // Use the session token to run other Parse Query methods as that user, because
@@ -13,7 +13,7 @@ Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world! " + (request.params.a + request.params.b)+ "byeeeeeee");
 });
 
-Parse.Cloud.define("aws-cognito", function(req, res){
+Parse.Cloud.define("cognito", function(req, res){
     var params = {
         IdentityPoolId: 'us-east-1:948bc458-fb52-4b87-97eb-2d9d066d77ae', /* required */
         Logins: { /* required */
@@ -22,11 +22,12 @@ Parse.Cloud.define("aws-cognito", function(req, res){
         },
         TokenDuration: 300
     };
+    console.log('hiiii mohit');
     cognitoidentity.getOpenIdTokenForDeveloperIdentity(params, function(err, data) {
-        if (err) console.log(err, err.stack); // an error occurred
-        else     console.log(data);           // successful response
+        if (err) res.success(err); // an error occurred
+        else     res.success(data);           // successful response
     });
-});
+    
 
 
 Parse.Cloud.beforeSave('TestObject', function(request, response) {
