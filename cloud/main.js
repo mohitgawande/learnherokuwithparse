@@ -10,7 +10,7 @@ Parse.Cloud.define("hello", function(request, response) {
   // Use the session token to run other Parse Query methods as that user, because
   //   the concept of a 'current' user does not fit in a Node environment.
   //   i.e.  query.find({ sessionToken: request.user.getSessionToken() })...
-  response.success("Hello world! " + (request.params.a + request.params.b));
+  response.success("Hello world! " + (request.params.a + request.params.b)+ "byeeeeeee");
 });
 
 Parse.Cloud.define("aws-cognito", function(req, res){
