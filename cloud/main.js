@@ -1,4 +1,4 @@
-
+var AWS = require('aws-sdk');
 
 var Parse = require('parse-cloud-express').Parse;
 
@@ -11,6 +11,21 @@ Parse.Cloud.define("hello", function(request, response) {
   //   the concept of a 'current' user does not fit in a Node environment.
   //   i.e.  query.find({ sessionToken: request.user.getSessionToken() })...
   response.success("Hello world! " + (request.params.a + request.params.b));
+});
+
+Parse.Cloud.define("aws-cognito", function(req, res){
+    var params = {
+        IdentityPoolId: 'us-east-1:948bc458-fb52-4b87-97eb-2d9d066d77ae', /* required */
+        Logins: { /* required */
+            'co.seedoc.seedocapp': 'SEEDOCMOH',
+            /* anotherKey: ... */
+        },
+        TokenDuration: 300
+    };
+    cognitoidentity.getOpenIdTokenForDeveloperIdentity(params, function(err, data) {
+        if (err) console.log(err, err.stack); // an error occurred
+        else     console.log(data);           // successful response
+    });
 });
 
 
