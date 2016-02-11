@@ -49,3 +49,4 @@ Parse.Cloud.afterDelete('TestObject', function(request, response) {
   console.log('Ran afterDelete on objectId: ' + request.object.id);
 });
 
+//mohit
