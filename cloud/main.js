@@ -20,7 +20,7 @@ Parse.Cloud.define("cognito", function(req, res){
             'co.seedoc.seedocapp': 'SEEDOCMOH',
             /* anotherKey: ... */
         },
-        TokenDuration: 300
+        TokenDuration: 300 
     };
     console.log('hiiii mohit');
     var cognitoidentity = new AWS.CognitoIdentity();
